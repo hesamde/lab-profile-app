@@ -7,19 +7,19 @@ const User = require("../models/User.model");
 const saltRounds =  10;
 
 router.post("/signup", (req, res, next) => {
-  const { username, password, campus, course } = req.body;
-  if(username === "" || password === ""){
-    res.status(400).json({message: "Please enter valid username and password"});
-    return
-  }
+    const { username, password, campus, course } = req.body;
+    if(username === "" || password === ""){
+        res.status(400).json({message: "Please enter valid username and password"});
+        return
+    }
 
-  const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!passwordRegex.test(password)) {
-    res.status(400).json({ message: 'Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.' });
-    return;
-  }
+    const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+    if (!passwordRegex.test(password)) {
+        res.status(400).json({ message: 'Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.' });
+        return;
+    }
 
-  User.findOne({username})
+    User.findOne({username})
     .then(user => {
         if(user){
             res.status(400).json({message: 'User already exists'});
@@ -55,8 +55,8 @@ router.post('/login', (req, res) => {
         }
         const validPassword = bcrypt.compareSync(password, foundUser.password);
         if(validPassword){
-            const { _id, username } = foundUser;
-            const payload = {_id, username}
+            const { _id, username , email } = foundUser;
+            const payload = {_id, username , email}
             const authToken =  jwt.sign(payload,
                 process.env.TOKEN_SECRET,
                 { algorithm: 'HS256', expiresIn: "6h" }
@@ -71,7 +71,7 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.get("/verify", (req, res)=> {
+router.get("/verify", isAuthenticated, (req, res , next)=> {
     console.log(req.payload)
     res.status(200).json(req.payload)
 })
