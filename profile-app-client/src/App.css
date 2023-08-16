@@ -1,0 +1,43 @@
+body {
+  background-color: #c4e0c6;
+  font-family: sans-serif;
+}
+
+.container {
+background-color: whitesmoke;
+padding: 30px;
+margin: 300px;
+}
+
+
+.signup-button, .login-button {
+  background-color: #c4e0c6;
+  color: #000000;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+
+}
+
+.signup-button:hover, .login-button:hover {
+  opacity: 0.8;
+}
+
+.signup-button {
+  background-color: #c4e0c6;
+}
+
+.login-button {
+  background-color: #c4e0c6;
+}
+
+.home-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
