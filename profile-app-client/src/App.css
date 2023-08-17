@@ -1,5 +1,5 @@
 body {
-  background-color: #c4e0c6;
+  background-color: #638165;
   font-family: sans-serif;
 }
 
@@ -40,4 +40,29 @@ margin: 300px;
   align-items: center;
 }
 
+
+/* signup */
+
+.signup-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.label {
+  /* Other styling... */
+  text-align: right;
+  clear: both;
+  float:left;
+  margin-right:15px;
+}
 

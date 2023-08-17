@@ -10,7 +10,7 @@ function Homepage() {
             Today we will create an app with authoritation, adding some cool styles!
             </p>
                 <Link to="/signup"><button className='signup-button' type="button">Sign Up</button></Link>
-                <Link to="/signup"><button className='login-button' type="button">Log in </button></Link>
+                <Link to="/LogIn"><button className='login-button' type="button">Log in </button></Link>
         </div>
     )
 }
